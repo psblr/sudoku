@@ -108,11 +108,7 @@ document.addEventListener('click', async function(e) {
 
 function load_sudoku()
 {
-    //var xmlHttp = new XMLHttpRequest();
-    //xmlHttp.open( "GET", 'http://192.168.137.114:5000/api', false ); // false for synchronous request
-    //xmlHttp.send( null );
-    //return [xmlHttp.responseText.slice(0, 81), xmlHttp.responseText.slice(81)];
-    return ['174625569329400000680570000300000000806750093000086005000000170064030000005004032', xmlHttp.responseText.slice(81)];
+    return ['174625569329400000680570000300000000806750093000086005000000170064030000005004032', ''];
 }
 
 function reload_sudoku()
@@ -212,5 +208,3 @@ function input(id)
     }
     
 }
-
-
