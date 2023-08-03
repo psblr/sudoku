@@ -110,7 +110,8 @@ function load_sudoku()
 {
     readJsonFile("https://psblr.github.io/sudoku/data.json", function(text){
         var data = JSON.parse(text);
-        sessionStorage.setItem("currentSudoku", data[0]);
+        let sudoku_id = Math.floor(Math.random() * 100);
+        sessionStorage.setItem("currentSudoku", data[sudoku_id]);
     });
     //return ['174625569329400000680570000300000000806750093000086005000000170064030000005004032', ''];
 }
