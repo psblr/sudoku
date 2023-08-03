@@ -108,8 +108,6 @@ document.addEventListener('click', async function(e) {
 
 function load_sudoku()
 {
-    
-
     readJsonFile("https://psblr.github.io/sudoku/data.json", function(text){
         var data = JSON.parse(text);
         sessionStorage.setItem("currentSudoku", data[0]);
