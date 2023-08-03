@@ -1,0 +1,108 @@
+body {
+    color: #424242;
+    background-color: rgb(236, 236, 236);
+}
+
+.game {
+    width: fit-content;
+    height: fit-content;
+    margin: 0px auto;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.grid {
+    border-collapse: collapse;
+    width: 378px;
+    height: 378px;
+    border: 3px solid #424242;
+    
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: rgb(68, 182, 93);
+    margin: 3px;
+  }
+
+.error-count {
+    display: flex;
+    margin: 0px auto;
+    margin-top: 20px;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+}
+
+.cell {
+    text-align: center;
+    width: 42px;
+    height: 42px;
+}
+
+.given-cell {
+    font: 1.5em sans-serif;
+}
+
+.active-cell {
+    outline: 2px solid black;
+    outline-offset: -2px;
+    
+    background-color: rgb(229, 248, 223);
+}
+
+.visited-cell {
+    background-color: rgb(229, 248, 223);
+}
+
+.error-cell {
+    background-color: rgb(148, 68, 68);
+}
+
+.same-number-cell {
+    background-color: #b4b4b4;
+}
+
+.entered-number-cell {
+    font: 1.25em sans-serif;
+}
+
+.input {
+    margin-top: 20px;
+}
+
+.input-table {
+    border-collapse: collapse;
+    width: 378px;
+    border: 1px solid #424242;
+}
+
+.input-number {
+    font: 1.5em sans-serif;
+    text-align: center;
+    align-items: center;
+    height: 42px;
+    background-color: rgb(229, 248, 223);
+}
+
+.solve {
+    margin: 0px auto;
+    margin-top: 10px;
+    width: fit-content;
+    align-items: right;
+}
+
+.button-solve {
+    border: none;
+    padding: 8px 15px;
+    text-align: center;
+    background-color: rgb(137, 173, 145);
+}
+
+.button-solve:hover {
+    background-color: rgb(155, 175, 159);
+}
