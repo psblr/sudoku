@@ -108,7 +108,13 @@ document.addEventListener('click', async function(e) {
 
 function load_sudoku()
 {
-    return ['174625569329400000680570000300000000806750093000086005000000170064030000005004032', ''];
+    
+
+    readJsonFile("https://psblr.github.io/sudoku/data.json", function(text){
+        var data = JSON.parse(text);
+        sessionStorage.setItem("currentSudoku", data[0]);
+    });
+    //return ['174625569329400000680570000300000000806750093000086005000000170064030000005004032', ''];
 }
 
 function reload_sudoku()
@@ -122,7 +128,10 @@ function reload_sudoku()
 
 function init_sudoku()
 {
-    let sudoku = load_sudoku();
+    load_sudoku();
+    sleep(1000);
+    let sudoku = sessionStorage.getItem("currentSudoku").split(",");
+    console.log(sudoku);
     sudoku_template = sudoku[0];
     sudoku_solution = sudoku[1];
     console.log(sudoku_template);
@@ -208,3 +217,17 @@ function input(id)
     }
     
 }
+
+function readJsonFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+
