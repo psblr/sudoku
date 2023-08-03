@@ -1,1 +1,180 @@
-<p>Hello World!</p>
+<!DOCTYPE html>
+<html id="html">
+    <head>
+        <title>Sudoku</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <link rel="stylesheet" href="index.css">
+        <script type="text/javascript" src="game.js"></script>
+        <script type="text/javascript" src="solve.js"></script>
+
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+    <body id="body">
+        <nav class="navbar navbar-inverse" id="navbar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SudokuGame</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a onclick="reload_sudoku()"><span class="glyphicon glyphicon-repeat"></span> New Game</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <div class="error-count">
+            <div id="c3" class="circle"></div>
+            <div id="c2" class="circle"></div>
+            <div id="c1" class="circle"></div>
+        </div>
+        <!--<div id="error-count" class="error-count">0</div>-->
+        <div id="game" class="game" onclick="clear_focus()">
+            <table id="grid" border="1" class="grid">
+                <tr class="row">
+                    <td id="cell0" class="cell"></td>
+                    <td id="cell1" class="cell"></td>
+                    <td id="cell2" class="cell"></td>
+                    <td id="cell3" class="cell"></td>
+                    <td id="cell4" class="cell"></td>
+                    <td id="cell5" class="cell"></td>
+                    <td id="cell6" class="cell"></td>
+                    <td id="cell7" class="cell"></td>
+                    <td id="cell8" class="cell"></td>
+    
+                    <!--row--></tr>
+                <tr class="row">
+                    <td id="cell9" class="cell"></td>
+                    <td id="cell10" class="cell"></td>
+                    <td id="cell11" class="cell"></td>
+                    <td id="cell12" class="cell"></td>
+                    <td id="cell13" class="cell"></td>
+                    <td id="cell14" class="cell"></td>
+                    <td id="cell15" class="cell"></td>
+                    <td id="cell16" class="cell"></td>
+                    <td id="cell17" class="cell"></td>
+    
+                    <!--row--></tr>
+    
+                <tr class="row">
+                    <td id="cell18" class="cell"></td>
+                    <td id="cell19" class="cell"></td>
+                    <td id="cell20" class="cell"></td>
+                    <td id="cell21" class="cell"></td>
+                    <td id="cell22" class="cell"></td>
+                    <td id="cell23" class="cell"></td>
+                    <td id="cell24" class="cell"></td>
+                    <td id="cell25" class="cell"></td>
+                    <td id="cell26" class="cell"></td>
+    
+                    <!--row--></tr>
+    
+                <tr class="row">
+                    <td id="cell27" class="cell"></td>
+                    <td id="cell28" class="cell"></td>
+                    <td id="cell29" class="cell"></td>
+                    <td id="cell30" class="cell"></td>
+                    <td id="cell31" class="cell"></td>
+                    <td id="cell32" class="cell"></td>
+                    <td id="cell33" class="cell"></td>
+                    <td id="cell34" class="cell"></td>
+                    <td id="cell35" class="cell"></td>
+    
+                    <!--row--></tr>
+                
+                <tr class="row">
+                    <td id="cell36" class="cell"></td>
+                    <td id="cell37" class="cell"></td>
+                    <td id="cell38" class="cell"></td>
+                    <td id="cell39" class="cell"></td>
+                    <td id="cell40" class="cell"></td>
+                    <td id="cell41" class="cell"></td>
+                    <td id="cell42" class="cell"></td>
+                    <td id="cell43" class="cell"></td>
+                    <td id="cell44" class="cell"></td>
+    
+                    <!--row--></tr>
+    
+                <tr class="row">
+                    <td id="cell45" class="cell"></td>
+                    <td id="cell46" class="cell"></td>
+                    <td id="cell47" class="cell"></td>
+                    <td id="cell48" class="cell"></td>
+                    <td id="cell49" class="cell"></td>
+                    <td id="cell50" class="cell"></td>
+                    <td id="cell51" class="cell"></td>
+                    <td id="cell52" class="cell"></td>
+                    <td id="cell53" class="cell"></td>
+    
+                    <!--row--></tr>
+    
+                <tr class="row">
+                    <td id="cell54" class="cell"></td>
+                    <td id="cell55" class="cell"></td>
+                    <td id="cell56" class="cell"></td>
+                    <td id="cell57" class="cell"></td>
+                    <td id="cell58" class="cell"></td>
+                    <td id="cell59" class="cell"></td>
+                    <td id="cell60" class="cell"></td>
+                    <td id="cell61" class="cell"></td>
+                    <td id="cell62" class="cell"></td>
+    
+                    <!--row--></tr>
+    
+                <tr class="row">
+                    <td id="cell63" class="cell"></td>
+                    <td id="cell64" class="cell"></td>
+                    <td id="cell65" class="cell"></td>
+                    <td id="cell66" class="cell"></td>
+                    <td id="cell67" class="cell"></td>
+                    <td id="cell68" class="cell"></td>
+                    <td id="cell69" class="cell"></td>
+                    <td id="cell70" class="cell"></td>
+                    <td id="cell71" class="cell"></td>
+    
+                    <!--row--></tr>
+    
+                <tr class="row">
+                    <td id="cell72" class="cell"></td>
+                    <td id="cell73" class="cell"></td>
+                    <td id="cell74" class="cell"></td>
+                    <td id="cell75" class="cell"></td>
+                    <td id="cell76" class="cell"></td>
+                    <td id="cell77" class="cell"></td>
+                    <td id="cell78" class="cell"></td>
+                    <td id="cell79" class="cell"></td>
+                    <td id="cell80" class="cell"></td>
+    
+                    <!--row--></tr>
+                    
+            </table>
+
+            <div id="input" class="input">
+                <table border="1" class="input-table">
+                    <tr>
+                        <td id="input1" class="input-number">1</td>
+                        <td id="input2" class="input-number">2</td>
+                        <td id="input3" class="input-number">3</td>
+                        <td id="input4" class="input-number">4</td>
+                        <td id="input5" class="input-number">5</td>
+                        <td id="input6" class="input-number">6</td>
+                        <td id="input7" class="input-number">7</td>
+                        <td id="input8" class="input-number">8</td>
+                        <td id="input9" class="input-number">9</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="solve" class="solve">
+                <button class="button-solve" onclick="solve()">Solve</button>
+            </div>
+        </div>
+    </body>
+</html>
