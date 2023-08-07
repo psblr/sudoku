@@ -20,11 +20,11 @@ window.addEventListener('load', () => {
         let index = Array.prototype.indexOf.call(cells, cell);
         if(index % 9 == 2 || index % 9 == 5)
         {
-            cell.style.borderRight = "2px solid #424242";
+            cell.style.borderRight = "2px solid var(--grid-color)";
         }
         if((index - (index % 9)) == 18 || (index - (index % 9)) == 45)
         {
-            cell.style.borderBottom = "2px solid #424242";
+            cell.style.borderBottom = "2px solid var(--grid-color)";
         }
     });
 
@@ -35,8 +35,6 @@ window.addEventListener('load', () => {
     input_numbers.forEach(input_number => {
         input_number.style.width = (width/10).toString() + "px";
     });
-
-    init_sudoku();
 });
 
 document.addEventListener('click', async function(e) {
@@ -227,6 +225,27 @@ function readJsonFile(file, callback) {
         }
     }
     rawFile.send(null);
+}
+
+function change_color() {
+    var r = document.querySelector(':root');
+    var rs =  getComputedStyle(r);
+    let dark_mode;
+    
+    /*if (rs.getPropertyValue('--bg-color') == '#424242')
+    {
+        r.style.setProperty('--highlight-color', 'rgb(229, 248, 223)');
+    }
+    else
+    {
+        r.style.setProperty('--highlight-color', 'rgb(142, 160, 136)');
+    }*/
+
+    var new_grid_color = rs.getPropertyValue('--bg-color');
+    var new_bg_color = rs.getPropertyValue('--grid-color');
+
+    r.style.setProperty('--bg-color', new_bg_color);
+    r.style.setProperty('--grid-color', new_grid_color);
 }
 
 

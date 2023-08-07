@@ -11,7 +11,7 @@
          <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
-    <body id="body">
+    <body id="body" class="body-class">
         <nav class="navbar navbar-inverse" id="navbar">
             <div class="container-fluid">
               <div class="navbar-header">
@@ -20,16 +20,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">SudokuGame</a>
+                <a class="navbar-brand" href="#">Sudoku Web Game</a>
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
+                  <li class="active"><a href="#">Play</a></li>
                   <li><a href="#">Game Info</a></li>
+                  <li><a onclick="change_color()"><span class="glyphicon glyphicon-adjust"></span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a onclick="reload_sudoku()"><span class="glyphicon glyphicon-repeat"></span> New Game</a></li>
+                    <li><a onclick="reload_sudoku()"><span class="glyphicon glyphicon-repeat"></span> Load New Game</a></li>
                 </ul>
+
               </div>
             </div>
         </nav>

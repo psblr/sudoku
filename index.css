@@ -1,6 +1,12 @@
-body {
-    color: #424242;
-    background-color: rgb(236, 236, 236);
+:root {
+    --bg-color: #424242;
+    --grid-color: rgb(236, 236, 236);
+    --highlight-color: rgb(142, 160, 136);
+}
+
+.body-class {
+    color: var(--grid-color);
+    background-color: var(--bg-color);
 }
 
 .game {
@@ -15,7 +21,7 @@ body {
     border-collapse: collapse;
     width: 378px;
     height: 378px;
-    border: 3px solid #424242;
+    border: 3px solid var(--grid-color);
     
 }
 
@@ -52,11 +58,11 @@ body {
     outline: 2px solid black;
     outline-offset: -2px;
     
-    background-color: rgb(229, 248, 223);
+    background-color: var(--highlight-color);
 }
 
 .visited-cell {
-    background-color: rgb(229, 248, 223);
+    background-color: var(--highlight-color);
 }
 
 .error-cell {
@@ -64,7 +70,7 @@ body {
 }
 
 .same-number-cell {
-    background-color: #b4b4b4;
+    background-color: #9c9a9a;
 }
 
 .entered-number-cell {
@@ -78,7 +84,7 @@ body {
 .input-table {
     border-collapse: collapse;
     width: 378px;
-    border: 1px solid #424242;
+    border: 1px solid var(--grid-color);
 }
 
 .input-number {
@@ -86,7 +92,7 @@ body {
     text-align: center;
     align-items: center;
     height: 42px;
-    background-color: rgb(229, 248, 223);
+    background-color: var(--highlight-color);
 }
 
 .solve {
