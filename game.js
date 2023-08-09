@@ -10,7 +10,7 @@ let sudoku_solution;
 
 let error_count = 0;
 
-function sleep(ms) {
+async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -35,6 +35,7 @@ window.addEventListener('load', () => {
     input_numbers.forEach(input_number => {
         input_number.style.width = (width/10).toString() + "px";
     });
+
 });
 
 document.addEventListener('click', async function(e) {
@@ -123,10 +124,10 @@ function reload_sudoku()
     init_sudoku();
 }
 
-function init_sudoku()
+async function init_sudoku()
 {
     load_sudoku();
-    sleep(1000);
+    await sleep(100);
     let sudoku = sessionStorage.getItem("currentSudoku").split(",");
     console.log(sudoku);
     sudoku_template = sudoku[0];
